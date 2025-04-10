@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class MainBankeBank {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Scanner to take user input
-        BankeBank bank = new BankeBank(); // Instance of the bank
+        Scanner scanner = new Scanner(System.in);
+        BankeBank bank = new BankeBank(); 
         Account userAccount = null;
         boolean accountCreated = false;
 
@@ -22,7 +22,7 @@ public class MainBankeBank {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: // Create account
+                case 1:
                     System.out.print("Enter first name: ");
                     String firstName = scanner.next();
                     System.out.print("Enter last name: ");
@@ -35,21 +35,21 @@ public class MainBankeBank {
                     System.out.println("Account created successfully. Account number: " + accountNumber);
                     break;
 
-                case 2: // Close account
+                case 2:
                     if (userAccount == null) {
                         System.out.println("No account created yet.");
                         break;
                     }
                     System.out.print("Enter pin: ");
                     pin = scanner.next();
-                    userAccount.withdrawMoney(pin, 0); // To check if pin is correct before closing
+                    userAccount.withdrawMoney(pin, 0); 
                     bank.closeAccount(userAccount.getAccountNumber());
                     userAccount = null;
                     accountCreated = false;
                     System.out.println("Account closed successfully.");
                     break;
 
-                case 3: // Deposit
+                case 3: 
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -62,7 +62,7 @@ public class MainBankeBank {
                     System.out.println("Deposit successful.");
                     break;
 
-                case 4: // Withdraw
+                case 4:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -79,7 +79,7 @@ public class MainBankeBank {
                     }
                     break;
 
-                case 5: // Transfer
+                case 5: 
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -99,7 +99,7 @@ public class MainBankeBank {
                     }
                     break;
 
-                case 6: // Display Balance
+                case 6: 
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -109,7 +109,7 @@ public class MainBankeBank {
                     userAccount.displayBalance(pin);
                     break;
 
-                case 7: // Change Pin
+                case 7:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -126,9 +126,8 @@ public class MainBankeBank {
                     }
                     break;
 
-                case 8: // Exit
+                case 8:
                     System.out.println("Exiting...");
-                    scanner.close();
                     return;
 
                 default:
