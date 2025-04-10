@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class MainBankeBank {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Scanner to take user input
-        BankeBank bank = new BankeBank(); // Instance of the bank
+        Scanner wisdom = new Scanner(System.in);
+        BankeBank bank = new BankeBank();
         Account userAccount = null;
         boolean accountCreated = false;
 
@@ -19,23 +19,23 @@ public class MainBankeBank {
             System.out.println("7. Change Pin");
             System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = wisdom.nextInt();
 
             switch (choice) {
-                case 1: // Create account
+                case 1:
                     System.out.print("Enter first name: ");
-                    String firstName = scanner.next();
+                    String firstName = wisdom.next();
                     System.out.print("Enter last name: ");
-                    String lastName = scanner.next();
+                    String lastName = wisdom.next();
                     System.out.print("Enter pin (4 digits): ");
-                    String pin = scanner.next();
+                    String pin = wisdom.next();
                     String accountNumber = bank.createAccount(firstName, lastName, pin);
                     userAccount = bank.findAccountByAccountNumber(accountNumber);
                     accountCreated = true;
                     System.out.println("Account created successfully. Account number: " + accountNumber);
                     break;
 
-                case 2: // Close account
+                case 2:
                     if (userAccount == null) {
                         System.out.println("No account created yet.");
                         break;
@@ -49,7 +49,7 @@ public class MainBankeBank {
                     System.out.println("Account closed successfully.");
                     break;
 
-                case 3: // Deposit
+                case 3:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -57,12 +57,12 @@ public class MainBankeBank {
                     System.out.print("Enter pin: ");
                     pin = scanner.next();
                     System.out.print("Enter deposit amount: ");
-                    double depositAmount = scanner.nextDouble();
+                    double depositAmount = wisdom.nextDouble();
                     userAccount.deposit(pin, depositAmount);
                     System.out.println("Deposit successful.");
                     break;
 
-                case 4: // Withdraw
+                case 4:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -70,7 +70,7 @@ public class MainBankeBank {
                     System.out.print("Enter pin: ");
                     pin = scanner.next();
                     System.out.print("Enter withdrawal amount: ");
-                    double withdrawAmount = scanner.nextDouble();
+                    double withdrawAmount = wisdom.nextDouble();
                     try {
                         userAccount.withdrawMoney(pin, withdrawAmount);
                         System.out.println("Withdrawal successful.");
@@ -79,17 +79,17 @@ public class MainBankeBank {
                     }
                     break;
 
-                case 5: // Transfer
+                case 5:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
                     }
                     System.out.print("Enter pin: ");
-                    pin = scanner.next();
+                    pin = wisdom.next();
                     System.out.print("Enter transfer amount: ");
-                    double transferAmount = scanner.nextDouble();
+                    double transferAmount = wisdom.nextDouble();
                     System.out.print("Enter recipient account number: ");
-                    String recipientAccountNumber = scanner.next();
+                    String recipientAccountNumber = wisdom.next();
                     Account recipientAccount = bank.findAccountByAccountNumber(recipientAccountNumber);
                     try {
                         userAccount.transferMoney(pin, transferAmount, recipientAccount);
@@ -99,40 +99,39 @@ public class MainBankeBank {
                     }
                     break;
 
-                case 6: // Display Balance
+                case 6:
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
                     }
                     System.out.print("Enter pin: ");
-                    pin = scanner.next();
+                    pin = wisdom.next();
                     userAccount.displayBalance(pin);
                     break;
 
-                case 7: // Change Pin
+                case 7: 
                     if (!accountCreated) {
-                        System.out.println("No account created yet.");
+                        System.out.println("No account Has been created yet.");
                         break;
                     }
                     System.out.print("Enter old pin: ");
-                    String oldPin = scanner.next();
+                    String oldPin = wisdom.next();
                     System.out.print("Enter new pin: ");
-                    String newPin = scanner.next();
+                    String newPin = wisdom.next();
                     try {
                         userAccount.changePin(oldPin, newPin);
-                        System.out.println("Pin changed successfully.");
+                        System.out.println("\nOga Your Pin changed successfully.");
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
 
-                case 8: // Exit
-                    System.out.println("Exiting...");
-                    scanner.close();
+                case 8:
+                    System.out.println("\nExiting...");
                     return;
 
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println("\nInvalid option. Please try again.");
             }
         }
     }
