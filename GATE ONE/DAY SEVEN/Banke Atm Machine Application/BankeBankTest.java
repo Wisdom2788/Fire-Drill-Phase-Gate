@@ -7,8 +7,8 @@ public class BankeBankTest {
     public void testUserCanCreateAccountWithFirstNameLastNameAndPin() {
         BankeBank bank = new BankeBank();
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
-        assertNotNull(accountNumber); // Ensure account number is not null when account is created
-        assertFalse(bank.isEmpty()); // Ensure bank is not empty after account creation
+        assertNotNull(accountNumber);
+        assertFalse(bank.isEmpty()); 
     }
 
     @Test
@@ -17,7 +17,7 @@ public class BankeBankTest {
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
         Account account = bank.findAccountByAccountNumber(accountNumber);
         account.deposit("1234", 20000);
-        assertEquals(20000, account.getBalance()); // Check if the deposit was successful
+        assertEquals(20000, account.getBalance()); 
     }
 
     @Test
@@ -37,9 +37,9 @@ public class BankeBankTest {
         Account account = bank.findAccountByAccountNumber(accountNumber);
         account.deposit("1234", 20000);
         IllegalArgumentException errorMessage = assertThrows(IllegalArgumentException.class, () -> {
-            account.withdrawMoney("1234", 25000); // Trying to withdraw more than available balance
+            account.withdrawMoney("1234", 25000);
         });
-        assertEquals("Insufficient Balance", errorMessage.getMessage()); // Check if the error is thrown
+        assertEquals("Insufficient Balance", errorMessage.getMessage());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class BankeBankTest {
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
         Account account = bank.findAccountByAccountNumber(accountNumber);
         account.deposit("1234", 20000);
-        assertEquals(20000, account.displayBalance("1234")); // Check if balance is displayed correctly
+        assertEquals(20000, account.displayBalance("1234"));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class BankeBankTest {
         BankeBank bank = new BankeBank();
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
         Account account = bank.findAccountByAccountNumber(accountNumber);
-        assertEquals(accountNumber, account.getAccountNumber()); // Ensure the account number matches
+        assertEquals(accountNumber, account.getAccountNumber());
     }
 
     @Test
@@ -69,10 +69,10 @@ public class BankeBankTest {
         Account account2 = bank.findAccountByAccountNumber(accountNumber2);
 
         account1.deposit("1234", 20000);
-        account1.transferMoney("1234", 5000, account2); // Transfer money from account1 to account2
+        account1.transferMoney("1234", 5000, account2);
 
-        assertEquals(15000, account1.getBalance()); // Ensure account1 balance is updated
-        assertEquals(5000, account2.getBalance()); // Ensure account2 balance is updated
+        assertEquals(15000, account1.getBalance());
+        assertEquals(5000, account2.getBalance());
     }
 
     @Test
@@ -80,8 +80,8 @@ public class BankeBankTest {
         BankeBank bank = new BankeBank();
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
         Account account = bank.findAccountByAccountNumber(accountNumber);
-        account.changePin("1234", "5678"); // Change pin from 1234  to 5678
-        assertEquals("5678", account.getPin()); // Ensure the pin was changed successfully
+        account.changePin("1234", "5678");
+        assertEquals("5678", account.getPin());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class BankeBankTest {
         String accountNumber = bank.createAccount("Wisdom", "Uzoma", "1234");
         Account account = bank.findAccountByAccountNumber(accountNumber);
 
-        bank.closeAccount(accountNumber); // Close the account
-        assertNull(bank.findAccountByAccountNumber(accountNumber)); // Ensure the account is deleted
+        bank.closeAccount(accountNumber);
+        assertNull(bank.findAccountByAccountNumber(accountNumber));
     }
 }
