@@ -14,7 +14,6 @@ public class Account {
         this.balance = 0.0;
     }
 
-    // Getters for account details
     public String getFirstName() {
         return firstName;
     }
@@ -35,7 +34,6 @@ public class Account {
         return pin;
     }
 
-    // Method to deposit money into the account
     public void deposit(String pin, double amount) {
         if (!this.pin.equals(pin)) {
             throw new IllegalArgumentException("Invalid pin.");
@@ -47,7 +45,6 @@ public class Account {
         }
     }
 
-    // Method to withdraw money from the account
     public void withdrawMoney(String pin, double amount) {
         if (!this.pin.equals(pin)) {
             throw new IllegalArgumentException("Invalid pin.");
@@ -57,8 +54,7 @@ public class Account {
         }
         this.balance -= amount;
     }
-
-    // Method to display balance
+    
     public double displayBalance(String pin) {
         if (!this.pin.equals(pin)) {
             throw new IllegalArgumentException("Invalid pin.");
@@ -67,7 +63,6 @@ public class Account {
         return 0;
     }
 
-    // Method to transfer money from this account to another account
     public void transferMoney(String pin, double amount, Account recipientAccount) {
         if (!this.pin.equals(pin)) {
             throw new IllegalArgumentException("Invalid pin.");
@@ -79,7 +74,6 @@ public class Account {
         recipientAccount.balance += amount;
     }
 
-    // Method to change the pin
     public void changePin(String oldPin, String newPin) {
         if (!this.pin.equals(oldPin)) {
             throw new IllegalArgumentException("Old pin does not match.");
