@@ -2,19 +2,16 @@ import java.util.Scanner;
 
 public class MainBankeBank {
 
-    public static void main(String[] args) {
-<<<<<<< HEAD
+    public static void main(String[] args) 
         Scanner wisdom = new Scanner(System.in);
         BankeBank bank = new BankeBank();
-=======
         Scanner scanner = new Scanner(System.in);
         BankeBank bank = new BankeBank(); 
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
         Account userAccount = null;
         boolean accountCreated = false;
 
         while (true) {
-            System.out.println("\nATM Menu:");
+            System.out.println("<<< WELCOME TO OGUNMEKPON AND SONS BANK / ATM >>>\n");
             System.out.println("1. Create Account");
             System.out.println("2. Close Account");
             System.out.println("3. Deposit");
@@ -53,12 +50,8 @@ public class MainBankeBank {
                     accountCreated = false;
                     System.out.println("Account closed successfully.");
                     break;
-
-<<<<<<< HEAD
-                case 3:
-=======
+                    
                 case 3: 
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -88,11 +81,7 @@ public class MainBankeBank {
                     }
                     break;
 
-<<<<<<< HEAD
-                case 5:
-=======
                 case 5: 
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -112,11 +101,7 @@ public class MainBankeBank {
                     }
                     break;
 
-<<<<<<< HEAD
-                case 6:
-=======
                 case 6: 
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
                     if (!accountCreated) {
                         System.out.println("No account created yet.");
                         break;
@@ -126,11 +111,7 @@ public class MainBankeBank {
                     userAccount.displayBalance(pin);
                     break;
 
-<<<<<<< HEAD
                 case 7: 
-=======
-                case 7:
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
                     if (!accountCreated) {
                         System.out.println("No account Has been created yet.");
                         break;
@@ -148,11 +129,7 @@ public class MainBankeBank {
                     break;
 
                 case 8:
-<<<<<<< HEAD
                     System.out.println("\nExiting...");
-=======
-                    System.out.println("Exiting...");
->>>>>>> 40889b5fa198170f3c3edd82ff7f7aed18542a90
                     return;
 
                 default:
